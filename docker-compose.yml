@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root        # Mot de passe root
+      MYSQL_DATABASE: aipdia_db # Base de données créée par défaut
+      MYSQL_USER: aipdia
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"                    # Expose le port 3306
+    volumes:
+      - mysql_data:/var/lib/mysql      # Volume pour persister les données
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+  mysql_data:                          # Déclare le volume

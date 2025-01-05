@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",               // Pour supporter les decorators modernes
+    "module": "CommonJS",             // Peut être "ESNext" si tu utilises un bundler
+    "experimentalDecorators": true,   // Active les decorators
+    "emitDecoratorMetadata": true,    // Génère des métadonnées pour TypeORM
+    "strictPropertyInitialization": false, // Désactive la vérification des propriétés non initialisées
+    "moduleResolution": "Node",       // Résolution des modules de type Node.js
+    "esModuleInterop": true,          // Pour importer les modules externes sans problème
+    "skipLibCheck": true,             // Ignore les erreurs de type dans node_modules
+    "sourceMap": true,                // Génère les fichiers source maps
+    "outDir": "./dist"                // Dossier où les fichiers compilés seront stockés
+  },
+  "include": ["src/**/*.ts","**/*.ts"],          // Fichiers à inclure
+  "exclude": ["node_modules", "dist"]  // Fichiers à exclure
+}
